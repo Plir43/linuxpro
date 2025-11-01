@@ -1,0 +1,36 @@
+
+all: $(PCH_NAME) $(PROG)
+
+SRCS= \
+ mySplitCommandLine.cpp \
+ myAddExeFlag.cpp \
+ test_lib.cpp \
+ wine_date_and_time.cpp \
+ wine_GetXXXDefaultLangID.cpp \
+ ../Common/MyVector.cpp \
+ ../Common/MyString.cpp \
+ ../Common/MyWindows.cpp
+
+StdAfx.h.gch : StdAfx.h
+	rm -f StdAfx.h.gch
+	$(CXX) $(CXXFLAGS) StdAfx.h -o StdAfx.h.gch -Wno-narrowing
+
+mySplitCommandLine.o : mySplitCommandLine.cpp
+	$(CXX) $(CXXFLAGS) mySplitCommandLine.cpp -Wno-narrowing
+myAddExeFlag.o : myAddExeFlag.cpp
+	$(CXX) $(CXXFLAGS) myAddExeFlag.cpp -Wno-narrowing
+test_lib.o : test_lib.cpp
+	$(CXX) $(CXXFLAGS) test_lib.cpp -Wno-narrowing
+wine_date_and_time.o : wine_date_and_time.cpp
+	$(CXX) $(CXXFLAGS) wine_date_and_time.cpp -Wno-narrowing
+wine_GetXXXDefaultLangID.o : wine_GetXXXDefaultLangID.cpp
+	$(CXX) $(CXXFLAGS) wine_GetXXXDefaultLangID.cpp -Wno-narrowing
+MyVector.o : ../Common/MyVector.cpp
+	$(CXX) $(CXXFLAGS) ../Common/MyVector.cpp -Wno-narrowing
+MyString.o : ../Common/MyString.cpp
+	$(CXX) $(CXXFLAGS) ../Common/MyString.cpp -Wno-narrowing
+MyWindows.o : ../Common/MyWindows.cpp
+	$(CXX) $(CXXFLAGS) ../Common/MyWindows.cpp -Wno-narrowing
+CpuArch.o : ../../C/CpuArch.c
+	$(CC) $(CFLAGS) ../../C/CpuArch.c
+

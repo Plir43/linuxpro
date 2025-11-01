@@ -1,0 +1,24 @@
+SRCS=\
+../../../myWindows/wine_date_and_time.cpp \
+../../../Common/MyWindows.cpp \
+../../../Common/MyString.cpp \
+../../../Common/StringConvert.cpp \
+../../../Windows/PropVariant.cpp \
+../../../Windows/DLL.cpp \
+./ClientCodec.cpp
+
+wine_date_and_time.o : ../../../myWindows/wine_date_and_time.cpp
+	$(CXX) $(CXXFLAGS) ../../../myWindows/wine_date_and_time.cpp -Wno-narrowing
+MyWindows.o : ../../../Common/MyWindows.cpp
+	$(CXX) $(CXXFLAGS) ../../../Common/MyWindows.cpp -Wno-narrowing
+MyString.o : ../../../Common/MyString.cpp
+	$(CXX) $(CXXFLAGS) ../../../Common/MyString.cpp -Wno-narrowing
+StringConvert.o : ../../../Common/StringConvert.cpp
+	$(CXX) $(CXXFLAGS) ../../../Common/StringConvert.cpp -Wno-narrowing
+PropVariant.o : ../../../Windows/PropVariant.cpp
+	$(CXX) $(CXXFLAGS) ../../../Windows/PropVariant.cpp -Wno-narrowing
+DLL.o : ../../../Windows/DLL.cpp
+	$(CXX) $(CXXFLAGS) ../../../Windows/DLL.cpp -Wno-narrowing
+ClientCodec.o : ./ClientCodec.cpp
+	$(CXX) $(CXXFLAGS) ./ClientCodec.cpp -Wno-narrowing
+
